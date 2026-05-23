@@ -37,7 +37,6 @@ export const site = {
   trust: [
     "Add4x Inc builds and operates restaurant technology products.",
     "Muffin Menu is an Add4x Inc product.",
-    "Public company site for add4x.com.",
   ],
 
   capabilities: {
