@@ -26,13 +26,13 @@ Convert the existing static `add4x.com` site (single `index.html` + `styles.css`
 - Multi-language support
 - Authentication, forms beyond a `mailto:` link, analytics dashboards
 - A real product shoot (place licensed stock now; commission later)
-- POS product page or interactive demo — POS is represented only as a "In development" card in the Products section
+- POS as a product (omitted from the Products section entirely for v1; can be added later once it is closer to launch)
 
 ## 3. Approach (chosen during brainstorming)
 
 **Approach B — Sections + typed content config.**
 
-`app/page.tsx` is a thin composition: it reads from `content/site.ts` and renders section components in order. Each section component takes props derived from the config and renders the JSX. Copy, links, and image paths never live inside JSX. This pays off the first time a headline, photo, or product blurb changes and pays off again when POS launches and needs to be promoted from a placeholder card to a fuller treatment.
+`app/page.tsx` is a thin composition: it reads from `content/site.ts` and renders section components in order. Each section component takes props derived from the config and renders the JSX. Copy, links, and image paths never live inside JSX. This pays off the first time a headline, photo, or product blurb changes, and pays off again when a second product is ready to ship — adding it is a config edit, not a JSX edit.
 
 ## 4. Architecture & stack
 
@@ -201,18 +201,14 @@ Type scale:
 - Full-bleed band — the page's single dark moment
 - Background: `--color-accent` (deep forest-green); text uses `--color-bg` (cream)
 - Optional: a low-opacity restaurant photo behind the band for texture (decision deferred to build time)
-- Heading (Display L italic, cream): *Our products.*
-- Two product cards in a horizontal row (stack on mobile):
+- Heading (Display L italic, cream): *Featured product.*
+- One product card, centered (or anchored left within the max-width with the heading):
   - **Muffin Menu**
     - Mark: square with lime fill, dark text — visually echoes the Add4x logo card
-    - Status pill: `LIVE` (lime border, lime text)
     - Body: *Muffin Menu is a restaurant management platform from Add4x Inc for kitchen display, point of sale, menu management, online ordering, and analytics.*
+    - Metadata list (small caps, cream-muted): *Legal owner — Add4x Inc · Category — Restaurant management platform · Website — muffinmenu.com*
     - Link: `Visit muffinmenu.com →` (cream text, underline on hover)
-  - **Add4x POS**
-    - Mark: outlined square placeholder
-    - Status pill: `IN DEVELOPMENT` (muted cream border, muted cream text)
-    - Body: short blurb describing planned scope (counter and service workflows for order routing and staff coordination)
-    - No link — non-interactive
+- The section is built to accept additional product cards later; it renders whatever the config supplies (1 card today, N cards tomorrow). Layout flips from "feature" treatment (1 product) to a horizontal row (2+ products) based on item count.
 
 ### 7.6 Contact (`#contact`)
 
@@ -268,10 +264,10 @@ export const site = {
     ],
   },
   products: {
-    heading: "Our products.",
+    heading: "Featured product.",
     items: [
-      { name: "Muffin Menu", status: "live", body: "...", href: "https://www.muffinmenu.com" },
-      { name: "Add4x POS",   status: "wip",  body: "...", href: null },
+      { name: "Muffin Menu", body: "...", href: "https://www.muffinmenu.com" },
+      // Future products go here; the component handles 1 or N items.
     ],
   },
   contact: {
@@ -352,4 +348,3 @@ After the new app builds and renders the same content as the legacy site:
 
 - Final hero photo selection — to be reviewed during build
 - Whether the products band uses a background photo at low opacity or stays as a flat forest-green plane
-- Whether the POS card stays in v1 or is hidden until closer to launch (default: stays in, as a "In development" pill)
