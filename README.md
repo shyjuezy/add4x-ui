@@ -1,20 +1,48 @@
 # Add4x Inc Website
 
-Static company site for `add4x.com`.
+Company site for [add4x.com](https://add4x.com). Built with Next.js 16, React 19, and Tailwind CSS v4.
 
-## Purpose
+## Stack
 
-- Present Add4x Inc as the legal company.
-- Highlight Muffin Menu as an Add4x Inc product.
-- Provide a public, functional company website for business verification.
+- **Framework:** Next.js 16 (App Router)
+- **UI:** React 19
+- **Styling:** Tailwind CSS v4 (`@tailwindcss/postcss`), design tokens in `src/app/globals.css`
+- **Language:** TypeScript (strict)
+- **Package manager:** pnpm
+
+## Development
+
+```bash
+pnpm install
+pnpm dev          # http://localhost:3000
+pnpm build        # production build
+pnpm start        # preview production build
+pnpm lint
+```
+
+## Structure
+
+```
+src/
+├── app/
+│   ├── layout.tsx       # html shell, fonts, global metadata
+│   ├── page.tsx         # composes sections
+│   └── globals.css      # Tailwind + @theme tokens
+├── components/
+│   ├── sections/        # Hero, TrustStrip, Capabilities, Products, Contact
+│   ├── ui/              # Header, Footer, Button
+│   └── icons/           # Logo
+└── content/
+    └── site.ts          # all copy, links, metadata (single source of truth)
+```
+
+All site copy lives in `src/content/site.ts`. Edits to the page typically only require editing that one file.
 
 ## Deploy
 
-This repo can be imported into Vercel as a static site with no build command.
+Imports cleanly into Vercel as a Next.js project. No environment variables required. Production domains: `add4x.com` (with `www.add4x.com` redirect).
 
-Suggested production domain:
+## Design spec
 
-```text
-add4x.com
-www.add4x.com
-```
+The design intent and visual system are captured in:
+`docs/superpowers/specs/2026-05-22-add4x-nextjs-redesign-design.md`
