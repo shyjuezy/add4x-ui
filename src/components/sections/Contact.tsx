@@ -7,7 +7,7 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden border-t border-[var(--color-line)] py-32 md:py-48"
+      className="relative overflow-hidden border-t border-[var(--color-line)] pt-8 md:pt-12 pb-32 md:pb-48"
     >
       <div
         aria-hidden="true"
@@ -24,7 +24,7 @@ export function Contact() {
       />
 
       <div className="relative max-w-[1200px] mx-auto px-6 md:px-12 lg:px-20 text-center">
-        <CircuitTraces className="mx-auto w-full max-w-[760px] h-auto mb-12 md:mb-16" />
+        <CircuitTraces className="mx-auto w-full max-w-[760px] h-auto mb-6 md:mb-8" />
 
         <p className="eyebrow text-[var(--color-accent)]">{eyebrow}</p>
         <h2 className="display-md mt-6 text-[clamp(32px,5vw,56px)] text-[var(--color-ink)] max-w-[820px] mx-auto">
