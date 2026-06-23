@@ -4,7 +4,7 @@ export const site = {
     description:
       "Add4x Inc builds restaurant technology products, including Muffin Menu, a restaurant management platform for modern food businesses.",
     domain: "add4x.com",
-    contactEmail: "hello@add4x.com",
+    contactEmail: "sales@muffinmenu.com",
   },
 
   nav: {
@@ -13,7 +13,7 @@ export const site = {
       { label: "Products", href: "#products" },
       { label: "Contact", href: "#contact" },
     ],
-    cta: { label: "Contact us", href: "mailto:hello@add4x.com" },
+    cta: { label: "Contact us", href: "mailto:sales@muffinmenu.com" },
   },
 
   hero: {
@@ -87,7 +87,13 @@ export const site = {
     eyebrow: "Let's talk",
     heading: "Build the restaurant operation your business needs.",
     lead: "Contact Add4x Inc for business, product, or account questions.",
-    email: "hello@add4x.com",
+    email: "sales@muffinmenu.com",
+  },
+
+  leadership: {
+    name: "Shyju Viswambaran",
+    title: "Founder, Add4x Inc",
+    email: "shyju@muffinmenu.com",
   },
 
   footer: {
@@ -96,7 +102,7 @@ export const site = {
       { label: "Platform", href: "#platform" },
       { label: "Products", href: "#products" },
       { label: "Muffin Menu", href: "https://www.muffinmenu.com" },
-      { label: "Contact", href: "mailto:hello@add4x.com" },
+      { label: "Contact", href: "mailto:sales@muffinmenu.com" },
     ],
     copyright: "© 2026 Add4x Inc. All rights reserved.",
   },
