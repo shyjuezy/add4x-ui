@@ -6,7 +6,7 @@ export function Footer() {
   return (
     <footer className="border-t border-[var(--color-line)] bg-[var(--color-bg)]">
       <div className="max-w-[1200px] mx-auto px-6 md:px-12 lg:px-20 py-16 md:py-20">
-        <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr] md:items-start">
+        <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr_1fr] md:items-start">
           <div className="flex flex-col gap-4">
             <Link
               href="/"
@@ -38,6 +38,30 @@ export function Footer() {
               );
             })}
           </nav>
+
+          <div
+            className="flex flex-col gap-3"
+            itemScope
+            itemType="https://schema.org/Person"
+          >
+            <p className="eyebrow mb-2">Leadership</p>
+            <p className="text-[14px] text-[var(--color-ink)]" itemProp="name">
+              {site.leadership.name}
+            </p>
+            <p
+              className="text-[13px] text-[var(--color-ink-muted)]"
+              itemProp="jobTitle"
+            >
+              {site.leadership.title}
+            </p>
+            <a
+              href={`mailto:${site.leadership.email}`}
+              className="text-[14px] text-[var(--color-ink-muted)] hover:text-[var(--color-ink)] transition-colors w-fit"
+              itemProp="email"
+            >
+              {site.leadership.email}
+            </a>
+          </div>
 
           <div className="flex flex-col gap-3">
             <p className="eyebrow mb-2">Contact</p>
